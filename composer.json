@@ -1,0 +1,15 @@
+{
+    "name": "vkzhuk/brain_games",
+    "bin": ["bin/brain-games"],
+    "description": "brain-games",
+    "homepage": "https://github.com/vkzhuk/project-lvl1-s312",
+    "version": "1.0.0",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Viktor Zhukouskiy",
+            "email": "vikt.anmail@gmail.com"
+        }
+    ],
+    "require": {}
+}
