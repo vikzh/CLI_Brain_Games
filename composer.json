@@ -13,5 +13,10 @@
             "email": "vikt.anmail@gmail.com"
         }
     ],
-    "require": {}
+    "autoload": {
+	"files": ["src/Cli.php"]
+    },
+    "require": {
+	"wp-cli/php-cli-tools":"*"	
+    }
 }
