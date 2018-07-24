@@ -1,7 +1,8 @@
 {
     "name": "vkzhuk/brain_games",
     "bin": ["bin/brain-games"],
-    "description": "brain-games",
+    "description": "brain-games in the PHP-CLI",
+    "keywords": ["game","PHP","CLI"],
     "homepage": "https://github.com/vkzhuk/project-lvl1-s312",
     "version": "1.0.0",
     "type": "project",
