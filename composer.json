@@ -4,9 +4,7 @@
     "description": "brain-games in the PHP-CLI",
     "keywords": ["game","PHP","CLI"],
     "homepage": "https://github.com/vkzhuk/project-lvl1-s312",
-    "version": "1.0.0",
     "type": "project",
-    "minimum-stability" : "dev",
     "authors": [
         {
             "name": "Viktor Zhukouskiy",
