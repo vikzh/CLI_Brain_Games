@@ -4,3 +4,6 @@ php:
 
 install:
   - make install
+
+script:
+  - bundle exec rake build
