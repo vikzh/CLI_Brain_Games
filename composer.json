@@ -1,26 +1,36 @@
 {
-    "name": "vkzhuk/brain_games",
-    "bin": ["bin/brain-games"],
-    "description": "brain-games in the PHP-CLI",
-    "keywords": ["game","PHP","CLI"],
-    "homepage": "https://github.com/vkzhuk/project-lvl1-s312",
-    "type": "project",
-    "authors": [
-        {
-            "name": "Viktor Zhukouskiy",
-            "email": "vikt.anmail@gmail.com"
-        }
-    ],
-    "autoload": {
-	"files": ["src/Cli.php"]
-    },
-    "require": {
-	"wp-cli/php-cli-tools":"*"	
-    },
-    "require-dev": {
-	"squizlabs/php_codesniffer": "3.*"
-    },
-    "scripts": {
-	"phpcs": "phpcs"
+  "name": "vkzhuk/brain_games",
+  "bin": [
+    "bin/brain-games",
+    "bin/brain-even"
+  ],
+  "description": "brain-games in the PHP-CLI",
+  "keywords": [
+    "game",
+    "PHP",
+    "CLI"
+  ],
+  "homepage": "https://github.com/vkzhuk/project-lvl1-s312",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Viktor Zhukouskiy",
+      "email": "vikt.anmail@gmail.com"
     }
+  ],
+  "autoload": {
+    "files": [
+      "src/Cli.php",
+      "src/Games/Even.php"
+    ]
+  },
+  "require": {
+    "wp-cli/php-cli-tools": "*"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "3.*"
+  },
+  "scripts": {
+    "phpcs": "phpcs"
+  }
 }
