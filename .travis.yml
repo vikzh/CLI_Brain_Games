@@ -6,4 +6,4 @@ install:
   - make install
 
 script:
-  - bundle exec rake build
+  - make lint
