@@ -16,33 +16,35 @@ function run()
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
 
-    $game = true;
-    for ($i = 0; $i < ANSWERS_FOR_VICTORY; $i++) {
-        if ($game) {
-            $game = question($name);
-        } else {
-            return;
-        }
-    }
-    if ($game) {
+
+    $gameResult = question();
+    if ($gameResult) {
         line('Congratulations, %s!', $name);
+    } else {
+        line('Let\'s try again, %s!', $name);
     }
 }
 
-function question(string $name): bool
+function question(): bool
 {
-    $question = rand(MIN_NUMBER, MAX_NUMBER);
-    $rightAnswer = isEven($question) ? 'yes' : 'no';
-    line("Question: %d", $question);
-    $answer = prompt('Your answer');
-    if ($answer === $rightAnswer) {
-        line('Correct!');
-        return true;
-    } else {
-        line('%s is wrong answer ;(. Correct answer was %s.', $answer, $rightAnswer);
-        line('Let\'s try again, %s!', $name);
-        return false;
+    $game = true;
+    for ($i = 0; $i < ANSWERS_FOR_VICTORY; $i++) {
+        if ($game) {
+            $question = rand(MIN_NUMBER, MAX_NUMBER);
+            $rightAnswer = isEven($question) ? 'yes' : 'no';
+            line("Question: %d", $question);
+            $answer = prompt('Your answer');
+            if ($answer === $rightAnswer) {
+                line('Correct!');
+                $game = true;
+            } else {
+                line('%s is wrong answer ;(. Correct answer was %s.', $answer, $rightAnswer);
+
+                return false;
+            }
+        }
     }
+    return false;
 }
 
 function isEven(int $number): bool
