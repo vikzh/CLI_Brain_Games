@@ -36,7 +36,6 @@ function question(): bool
             $answer = prompt('Your answer');
             if ($answer === $rightAnswer) {
                 line('Correct!');
-                $game = true;
             } else {
                 line('%s is wrong answer ;(. Correct answer was %s.', $answer, $rightAnswer);
 
@@ -44,7 +43,7 @@ function question(): bool
             }
         }
     }
-    return false;
+    return true;
 }
 
 function isEven(int $number): bool

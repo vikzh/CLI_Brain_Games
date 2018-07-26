@@ -2,7 +2,8 @@
   "name": "vkzhuk/brain_games",
   "bin": [
     "bin/brain-games",
-    "bin/brain-even"
+    "bin/brain-even",
+    "bin/brain-calc"
   ],
   "description": "brain-games in the PHP-CLI",
   "keywords": [
@@ -21,7 +22,8 @@
   "autoload": {
     "files": [
       "src/Cli.php",
-      "src/Games/Even.php"
+      "src/Games/Even.php",
+      "src/Games/Calc.php"
     ]
   },
   "require": {
