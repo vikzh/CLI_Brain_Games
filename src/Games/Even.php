@@ -39,4 +39,3 @@ function question(string $name): bool
         return false;
     }
 }
-
