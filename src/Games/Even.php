@@ -16,8 +16,13 @@ function run()
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
 
-    for ($i = 0, $game = true; $i < ANSWERS_FOR_VICTORY && $game; $i++) {
-        $game = question($name);
+    $game = true;
+    for ($i = 0; $i < ANSWERS_FOR_VICTORY; $i++) {
+        if ($game) {
+            $game = question($name);
+        } else {
+            return;
+        }
     }
     if ($game) {
         line('Congratulations, %s!', $name);
@@ -26,9 +31,9 @@ function run()
 
 function question(string $name): bool
 {
-    $questionNumber = rand(MIN_NUMBER, MAX_NUMBER);
-    $rightAnswer = $questionNumber % 2 ? 'no' : 'yes';
-    line("Question: %d", $questionNumber);
+    $question = rand(MIN_NUMBER, MAX_NUMBER);
+    $rightAnswer = isEven($question) ? 'yes' : 'no';
+    line("Question: %d", $question);
     $answer = prompt('Your answer');
     if ($answer === $rightAnswer) {
         line('Correct!');
@@ -38,4 +43,9 @@ function question(string $name): bool
         line('Let\'s try again, %s!', $name);
         return false;
     }
+}
+
+function isEven(int $number): bool
+{
+    return $number % 2 === 1 ? false : true;
 }
