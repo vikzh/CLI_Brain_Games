@@ -6,7 +6,8 @@
     "bin/brain-calc",
     "bin/brain-gcd",
     "bin/brain-balance",
-    "bin/brain-progression"
+    "bin/brain-progression",
+    "bin/brain-prime"
   ],
   "description": "brain-games in the PHP-CLI",
   "keywords": [
@@ -30,7 +31,8 @@
       "src/Games/Calc.php",
       "src/Games/Gcd.php",
       "src/Games/Balance.php",
-      "src/Games/Progression.php"
+      "src/Games/Progression.php",
+      "src/Games/Prime.php"
     ]
   },
   "require": {
