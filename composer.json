@@ -4,7 +4,8 @@
     "bin/brain-games",
     "bin/brain-even",
     "bin/brain-calc",
-    "bin/brain-gcd"
+    "bin/brain-gcd",
+    "bin/brain-balance"
   ],
   "description": "brain-games in the PHP-CLI",
   "keywords": [
@@ -26,7 +27,8 @@
       "src/GameStructure.php",
       "src/Games/Even.php",
       "src/Games/Calc.php",
-      "src/Games/Gcd.php"
+      "src/Games/Gcd.php",
+      "src/Games/Balance.php"
     ]
   },
   "require": {
