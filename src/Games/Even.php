@@ -23,5 +23,5 @@ function run()
 
 function isEven(int $number): bool
 {
-    return $number % 2 === 1 ? false : true;
+    return $number % 2 === 0;
 }

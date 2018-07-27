@@ -28,11 +28,11 @@ function init($description, $questionFunction)
             }
         }
     }
-    isSuccess($game, $name);
+    isWin($game, $name);
     return 0;
 }
 
-function isSuccess($game, $name)
+function isWin($game, $name)
 {
     if ($game) {
         line('Congratulations, %s!', $name);
