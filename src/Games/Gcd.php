@@ -13,25 +13,13 @@ const GAME_DESCRIPTION = 'Find the greatest common divisor of given numbers.';
 function run()
 {
     $questionFunction = function () {
-        $game = true;
-        for ($i = 0; $i < Init\ANSWERS_FOR_VICTORY; $i++) {
-            if ($game) {
-                $firstNumber = rand(MIN_NUMBER, MAX_NUMBER);
-                $secondNumber = rand(MIN_NUMBER, MAX_NUMBER);
-                $question = "$firstNumber $secondNumber";
-                $rightAnswer = gcd($firstNumber, $secondNumber);
-                line("Question: %s", $question);
-                $answer = prompt('Your answer');
-                if ($answer == $rightAnswer) {
-                    line('Correct!');
-                } else {
-                    line('%s is wrong answer ;(. Correct answer was %s.', $answer, $rightAnswer);
 
-                    return false;
-                }
-            }
-        }
-        return true;
+        $firstNumber = rand(MIN_NUMBER, MAX_NUMBER);
+        $secondNumber = rand(MIN_NUMBER, MAX_NUMBER);
+        $question = "$firstNumber $secondNumber";
+        $rightAnswer = gcd($firstNumber, $secondNumber);
+
+        return [$question, $rightAnswer];
     };
     Init\init(GAME_DESCRIPTION, $questionFunction);
 }
