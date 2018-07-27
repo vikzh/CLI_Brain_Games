@@ -29,6 +29,7 @@ function init($description, $questionFunction)
         }
     }
     isSuccess($game, $name);
+    return 0;
 }
 
 function isSuccess($game, $name)

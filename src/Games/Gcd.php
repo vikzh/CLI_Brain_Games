@@ -2,8 +2,6 @@
 
 namespace BrainGames\Games\Gcd;
 
-use function \cli\line;
-use function \cli\prompt;
 use BrainGames\GameStructure as Init;
 
 const MAX_NUMBER = 100;
