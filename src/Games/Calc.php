@@ -2,49 +2,26 @@
 
 namespace BrainGames\Games\Calc;
 
-use function \cli\line;
-use function \cli\prompt;
+use function  BrainGames\GameStructure\init;
 
-const ANSWERS_FOR_VICTORY = 3;
 const MAX_NUMBER = 100;
 const MIN_NUMBER = -1;
 const OPERATIONS = ['+', '-', '*'];
+const GAME_DESCRIPTION = 'What is the result of the expression?';
 
 function run()
 {
-    line('Welcome to the Brain Games!');
-    line('What is the result of the expression?');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
+    $questionFunction = function () {
 
-    $gameResult = question();
-    if ($gameResult) {
-        line('Congratulations, %s!', $name);
-    } else {
-        line('Let\'s try again, %s!', $name);
-    }
-}
+        $firstNumber = rand(MIN_NUMBER, MAX_NUMBER);
+        $secondNumber = rand(MIN_NUMBER, MAX_NUMBER);
+        $operator = OPERATIONS[array_rand(OPERATIONS)];
+        $question = "$firstNumber $operator $secondNumber";
+        $rightAnswer = calculate($firstNumber, $secondNumber, $operator);
 
-function question(): bool
-{
-    $game = true;
-    for ($i = 0; $i < ANSWERS_FOR_VICTORY; $i++) {
-        if ($game) {
-            $firstOperand = rand(MIN_NUMBER, MAX_NUMBER);
-            $secondOperand = rand(MIN_NUMBER, MAX_NUMBER);
-            $operator = OPERATIONS[array_rand(OPERATIONS)];
-            $rightAnswer = calculate($firstOperand, $secondOperand, $operator);
-            line("Question: %d %s %d", $firstOperand, $operator, $secondOperand);
-            $answer = prompt('Your answer');
-            if ($answer == $rightAnswer) {
-                line('Correct!');
-            } else {
-                line('%s is wrong answer ;(. Correct answer was %s.', $answer, $rightAnswer);
-                return false;
-            }
-        }
-    }
-    return true;
+        return [$question, $rightAnswer];
+    };
+    init(GAME_DESCRIPTION, $questionFunction);
 }
 
 function calculate(int $firstOperand, int $secondOperand, $operator): int

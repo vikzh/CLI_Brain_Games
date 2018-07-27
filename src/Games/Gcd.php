@@ -2,7 +2,7 @@
 
 namespace BrainGames\Games\Gcd;
 
-use BrainGames\GameStructure as Init;
+use function  BrainGames\GameStructure\init;
 
 const MAX_NUMBER = 100;
 const MIN_NUMBER = 1;
@@ -19,7 +19,7 @@ function run()
 
         return [$question, $rightAnswer];
     };
-    Init\init(GAME_DESCRIPTION, $questionFunction);
+    init(GAME_DESCRIPTION, $questionFunction);
 }
 
 function gcd(int $firstNumber, int $secondNumber): int

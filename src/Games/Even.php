@@ -2,48 +2,23 @@
 
 namespace BrainGames\Games\Even;
 
-use function \cli\line;
-use function \cli\prompt;
+use function  BrainGames\GameStructure\init;
 
-const ANSWERS_FOR_VICTORY = 3;
 const MAX_NUMBER = 100;
 const MIN_NUMBER = -1;
+const GAME_DESCRIPTION = 'Answer "yes" if number even otherwise answer "no".';
 
 function run()
 {
-    line('Welcome to the Brain Games!');
-    line('Answer "yes" if number even otherwise answer "no".');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
+    $questionFunction = function () {
 
+        $number = rand(MIN_NUMBER, MAX_NUMBER);
+        $question = "$number";
+        $rightAnswer = isEven($number) ? 'yes' : 'no';
 
-    $gameResult = question();
-    if ($gameResult) {
-        line('Congratulations, %s!', $name);
-    } else {
-        line('Let\'s try again, %s!', $name);
-    }
-}
-
-function question(): bool
-{
-    $game = true;
-    for ($i = 0; $i < ANSWERS_FOR_VICTORY; $i++) {
-        if ($game) {
-            $question = rand(MIN_NUMBER, MAX_NUMBER);
-            $rightAnswer = isEven($question) ? 'yes' : 'no';
-            line("Question: %d", $question);
-            $answer = prompt('Your answer');
-            if ($answer === $rightAnswer) {
-                line('Correct!');
-            } else {
-                line('%s is wrong answer ;(. Correct answer was %s.', $answer, $rightAnswer);
-
-                return false;
-            }
-        }
-    }
-    return true;
+        return [$question, $rightAnswer];
+    };
+    init(GAME_DESCRIPTION, $questionFunction);
 }
 
 function isEven(int $number): bool
