@@ -7,36 +7,39 @@ use function \cli\prompt;
 
 const ANSWERS_FOR_VICTORY = 3;
 
-function init($description, $questionFunction)
+function init($description, $getGameData)
+{
+    $userName = greeting($description);
+    $game = game($getGameData);
+    isWin($game) ? line('Congratulations, %s!', $userName) : line('Let\'s try again, %s!', $userName);
+}
+
+function game($getGameData): bool
+{
+    for ($i = 0; $i < ANSWERS_FOR_VICTORY; $i++) {
+        [$question, $rightAnswer] = $getGameData();
+        line("Question: %s", $question);
+        $answer = prompt('Your answer');
+        if ($answer == $rightAnswer) {
+            line('Correct!');
+        } else {
+            line('%s is wrong answer ;(. Correct answer was %s.', $answer, $rightAnswer);
+            return false;
+        }
+    }
+    return true;
+}
+
+function greeting($description)
 {
     line('Welcome to the Brain Games!');
     line('%s', $description);
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-
-    $game = true;
-    for ($i = 0; $i < ANSWERS_FOR_VICTORY; $i++) {
-        if ($game) {
-            [$question, $rightAnswer] = $questionFunction();
-            line("Question: %s", $question);
-            $answer = prompt('Your answer');
-            if ($answer == $rightAnswer) {
-                line('Correct!');
-            } else {
-                line('%s is wrong answer ;(. Correct answer was %s.', $answer, $rightAnswer);
-                return false;
-            }
-        }
-    }
-    isWin($game, $name);
-    return 0;
+    return $name;
 }
 
-function isWin($game, $name)
+function isWin($game): bool
 {
-    if ($game) {
-        line('Congratulations, %s!', $name);
-    } else {
-        line('Let\'s try again, %s!', $name);
-    }
+    return $game;
 }

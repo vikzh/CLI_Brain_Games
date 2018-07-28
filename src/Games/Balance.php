@@ -10,20 +10,20 @@ const GAME_DESCRIPTION = 'Balance the given number.';
 
 function run()
 {
-    $questionFunction = function () {
+    $getGameData = function () {
 
         $number = rand(MIN_NUMBER, MAX_NUMBER);
         $question = $number;
-        $rightAnswer = balanceNumber((string)$number);
+        $rightAnswer = balanceNumber($number);
 
         return [$question, $rightAnswer];
     };
-    init(GAME_DESCRIPTION, $questionFunction);
+    init(GAME_DESCRIPTION, $getGameData);
 }
 
 function balanceNumber($number): int
 {
-    $numbersOfNumber = str_split($number);
+    $numbersOfNumber = str_split((string)$number);
     $countNumbers = count($numbersOfNumber);
     $sumOfNumbers = array_sum($numbersOfNumber);
     $balanceNumbers = array_fill(0, $countNumbers, 0);

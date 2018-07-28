@@ -31,7 +31,7 @@ function run()
 function makeProgression(int $startNumber, int $step): array
 {
     $progression = [$startNumber];
-    for ($i = 1; $i < 10; $i++) {
+    for ($i = 1; $i < PROGRESSION_LENGTH; $i++) {
         $progression[$i] = $progression[$i - 1] + $step;
     }
 
