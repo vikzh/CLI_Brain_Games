@@ -11,7 +11,7 @@ function init($description, $getGameData)
 {
     $userName = greeting($description);
     $game = game($getGameData);
-    isWin($game) ? line('Congratulations, %s!', $userName) : line('Let\'s try again, %s!', $userName);
+    isWin($game) ? sayCongratulations($userName) : sayRegret($userName);
 }
 
 function game($getGameData): bool
@@ -42,4 +42,14 @@ function greeting($description)
 function isWin($game): bool
 {
     return $game;
+}
+
+function sayCongratulations($name)
+{
+    line('Congratulations, %s!', $name);
+}
+
+function sayRegret($name)
+{
+    line('Let\'s try again, %s!', $name);
 }
