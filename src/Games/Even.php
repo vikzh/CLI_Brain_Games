@@ -2,7 +2,7 @@
 
 namespace BrainGames\Games\Even;
 
-use function  BrainGames\GameStructure\init;
+use function  BrainGames\GameEngine\init;
 
 const MAX_NUMBER = 100;
 const MIN_NUMBER = -1;

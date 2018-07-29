@@ -1,6 +1,6 @@
 <?php
 
-namespace BrainGames\GameStructure;
+namespace BrainGames\GameEngine;
 
 use function \cli\line;
 use function \cli\prompt;
@@ -10,8 +10,12 @@ const ANSWERS_FOR_VICTORY = 3;
 function init($description, $getGameData)
 {
     $userName = greeting($description);
-    $game = game($getGameData);
-    isWin($game) ? sayCongratulations($userName) : sayRegret($userName);
+    $isWin = game($getGameData);
+    if ($isWin) {
+        line('Congratulations, %s!', $userName);
+    } else {
+        line('Let\'s try again, %s!', $userName);
+    }
 }
 
 function game($getGameData): bool
@@ -37,19 +41,4 @@ function greeting($description)
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
     return $name;
-}
-
-function isWin($game): bool
-{
-    return $game;
-}
-
-function sayCongratulations($name)
-{
-    line('Congratulations, %s!', $name);
-}
-
-function sayRegret($name)
-{
-    line('Let\'s try again, %s!', $name);
 }

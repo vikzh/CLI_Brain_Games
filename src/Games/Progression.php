@@ -2,7 +2,7 @@
 
 namespace BrainGames\Games\Progression;
 
-use function  BrainGames\GameStructure\init;
+use function  BrainGames\GameEngine\init;
 
 const PROGRESSION_LENGTH = 10;
 const STEP_MIN = 1;
