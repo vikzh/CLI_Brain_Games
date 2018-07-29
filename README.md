@@ -59,3 +59,6 @@ Determine whether the given number is prime or not.
 ```bash
 brain-prime
 ```
+## Gameplay
+
+[![asciicast](https://asciinema.org/a/xapxnZkrw63HxtncOQMgIPDXC.png)](https://asciinema.org/a/xapxnZkrw63HxtncOQMgIPDXC)
