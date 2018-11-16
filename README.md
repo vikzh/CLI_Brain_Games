@@ -1,5 +1,5 @@
-<a href="https://codeclimate.com/github/vkzhuk/project-lvl1-s312/maintainability"><img src="https://api.codeclimate.com/v1/badges/69eacd9dbaf4fa9faab2/maintainability" /></a>
-[![Build Status](https://travis-ci.org/vkzhuk/project-lvl1-s312.svg?branch=master)](https://travis-ci.org/vkzhuk/project-lvl1-s312)
+[![Maintainability](https://api.codeclimate.com/v1/badges/fb964429d8348d949698/maintainability)](https://codeclimate.com/github/vkzhuk/CLI_Brain_Games/maintainability)
+[![Build Status](https://travis-ci.org/vkzhuk/CLI_Brain_Games.svg?branch=master)](https://travis-ci.org/vkzhuk/CLI_Brain_Games)
 # Brain Games
 CLI-Games
 
